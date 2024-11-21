@@ -1,28 +1,30 @@
-version: '3.8'
-
 services:
   php-apache:
     image: php:8.0-apache
     container_name: php-apache
-    platform: linux/amd64  # Pour forcer l'image à utiliser amd64
+    platform: linux/amd64
     ports:
-      - "8080:80"
+      - "3001:80"
     volumes:
-      - ./html:/var/www/html
+      - /Applications/XAMPP/xamppfiles/htdocs/docker-php-mysql-apache-mongodb/html:/var/www/html
+      - /Applications/XAMPP/xamppfiles/htdocs/docker-php-mysql-apache-mongodb/html/php.ini:/usr/local/etc/php/conf.d/99-custom.ini
     networks:
       - mynetwork
 
+
   mysql:
-    image: mysql:8  # Version compatible avec arm64
+    image: mysql:8
     container_name: mysql
-    platform: linux/amd64  # Forcer l'usage de l'architecture amd64 si nécessaire
+    platform: linux/amd64
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: example_root_password
-      MYSQL_DATABASE: example_database
-      MYSQL_USER: example_user
-      MYSQL_PASSWORD: example_password
+      MYSQL_ROOT_PASSWORD: Emile1-Gosh@
+      MYSQL_DATABASE: Arcadia
+      MYSQL_USER: Arcajosé
+      MYSQL_PASSWORD: Emile1-Gosh@
+    volumes:
+      - dbdata:/var/lib/mysql
     networks:
       - mynetwork
 
@@ -32,6 +34,8 @@ services:
     platform: linux/amd64
     ports:
       - "27017:27017"
+    volumes:
+      - mongodata:/data/db
     networks:
       - mynetwork
 
@@ -49,3 +53,7 @@ services:
 networks:
   mynetwork:
     driver: bridge
+
+volumes:
+  dbdata:
+  mongodata:

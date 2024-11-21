@@ -1,5 +1,17 @@
+<?php
+opcache_reset();
+echo "OPCache has been reset at " . date("H:i:s");
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
