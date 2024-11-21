@@ -1,0 +1,18 @@
+{
+    "name": "karine/arcadia",
+    "description": "ecf arcadia",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Karine\\Arcadia\\": "src/",
+            "Router\\": "routes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "karinesch",
+            "email": "karine@exemple.com"
+        }
+    ],
+    "require": {}
+}
